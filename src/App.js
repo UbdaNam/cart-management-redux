@@ -1,9 +1,11 @@
+import CartContainer from "./components/CartContainer";
+import Navbar from "./components/Navbar";
 function App() {
   return (
-    <div className="App">
-      <h1>Redux</h1>
-    </div>
+    <main>
+      <Navbar />
+      <CartContainer />
+    </main>
   );
 }
-
 export default App;
