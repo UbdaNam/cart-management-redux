@@ -1,6 +1,6 @@
-import CartItem from "./CartItem";
-import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "../features/cart/cartSlice";
+import { useSelector, useDispatch } from 'react-redux';
+import CartItem from './CartItem';
+import { clearCart } from '../features/cart/cartSlice';
 
 const CartContainer = () => {
   const dispatch = useDispatch();
@@ -23,18 +23,33 @@ const CartContainer = () => {
         <h2>your bag</h2>
       </header>
       <div>
-        {cartItems.map((item) => {
-          return <CartItem key={item.id} {...item} />;
-        })}
+        {cartItems.map((item) => (
+          <CartItem
+            key={item.id}
+            img={item.img}
+            title={item.title}
+            price={item.price}
+            amount={item.amount}
+          />
+        ))}
       </div>
       <footer>
         <hr />
         <div className="cart-total">
           <h4>
-            total <span>${total.toFixed(2)}</span>
+            total
+            {' '}
+            <span>
+              $
+              {total.toFixed(2)}
+            </span>
           </h4>
         </div>
-        <button className="btn clear-btn" onClick={() => dispatch(clearCart())}>
+        <button
+          type="button"
+          className="btn clear-btn"
+          onClick={() => dispatch(clearCart())}
+        >
           clear cart
         </button>
       </footer>
